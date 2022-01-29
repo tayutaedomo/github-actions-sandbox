@@ -7,9 +7,7 @@ jobs:
     name: Auto commit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-        with:
-          ref: ${{ github.ref_name }}
+      - uses: actions/checkout@v2
       - name: Append Message
         run: |
           echo "`date '+%Y%m%d-%H%M%S'`: added." >> auto_commit.txt
@@ -19,4 +17,3 @@ jobs:
           file_pattern: auto_commit.txt
           commit_options: '--no-verify --signoff'
           commit_message: Add message to auto_commit.txt
-
