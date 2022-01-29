@@ -1,7 +1,7 @@
 name: Checkout
 on:
   push:
-    branches: [ feature/checkout ]
+    branches: [ "feature/checkout" ]
 jobs:
   build:
     name: Check the contents of the file

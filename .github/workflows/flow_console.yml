@@ -1,7 +1,7 @@
 name: Flow Control
 on:
   push:
-    branches: [ develop ]
+    branches: [ "feature/flow-console" ]
 jobs:
   job1:
     name: Greeting 1

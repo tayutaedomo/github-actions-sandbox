@@ -1,7 +1,7 @@
 name: If expression
 on:
   push:
-    branches: [ develop ]
+    branches: [ "feature/if-expression" ]
 jobs:
   if-pull-requestis-opend:
     name: If
