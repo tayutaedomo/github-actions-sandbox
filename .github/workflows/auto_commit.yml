@@ -1,0 +1,19 @@
+name: auto commit
+on:
+  push:
+    branches: [ "feature/auto-commit" ]
+jobs:
+  auto-commit:
+    name: Auto commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Append Message
+        run: |
+          echo "`date '+%Y%m%d-%H%M%S'`: added." >> auto_commit.txt
+      - name: Commit txt
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: auto_commit.txt
+          commit_options: '--no-verify --signoff'
+          commit_message: Add message to auto_commit.txt
