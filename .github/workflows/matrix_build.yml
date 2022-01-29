@@ -1,0 +1,19 @@
+name: Node.js Matrix Build
+on:
+  push:
+    branches: [ "feature/matrix-build" ]
+jobs:
+  matrix-build:
+    name: Node.js ${{ matrix.os }} ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [14, 16]
+    steps:
+      - name: Set Node.js
+        uses: action/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: node -v
