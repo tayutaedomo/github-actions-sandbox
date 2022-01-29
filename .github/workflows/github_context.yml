@@ -1,7 +1,7 @@
 name: GitHub Context
 on:
   push:
-    branches: [ main ]
+    branches: [ develop ]
 jobs:
   github-context:
     name: GitHub Context

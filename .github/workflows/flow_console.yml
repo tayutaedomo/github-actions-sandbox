@@ -1,7 +1,7 @@
 name: Flow Control
 on:
   push:
-    branches: [ main ]
+    branches: [ develop ]
 jobs:
   job1:
     name: Greeting 1

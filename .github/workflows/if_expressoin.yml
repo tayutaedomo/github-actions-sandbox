@@ -1,5 +1,7 @@
 name: If expression
-on: pull_request
+on:
+  push:
+    branches: [ develop ]
 jobs:
   if-pull-requestis-opend:
     name: If
