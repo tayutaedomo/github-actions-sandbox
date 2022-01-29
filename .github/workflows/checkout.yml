@@ -1,11 +1,13 @@
-name: Access files
+name: Checkout
 on:
   push:
-    branches: [ develop ]
+    branches: [ feature/checkout ]
 jobs:
   build:
     name: Check the contents of the file
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
       - run: cat sample.txt
