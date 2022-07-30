@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Occur failure
+        id: occur_failure
         uses: ./.github/actions/occur_failure
       - name: Success
         if: success()
@@ -21,4 +22,5 @@ jobs:
         shell: bash
         run: |
           echo "Failure"
+          echo ${{ steps.occur_failure.outputs.message }}
     
