@@ -1,0 +1,14 @@
+name: Try workflow_dispatch
+on:
+  push:
+    branches:
+      - "feature/workflow-dispatch"
+  workflow_dispatch:
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        shell: bash
+        run: echo "Hello! `date +'%Y-%m-%dT%H:%M:%S'`"
+  
