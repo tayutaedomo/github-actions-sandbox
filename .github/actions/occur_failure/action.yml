@@ -14,6 +14,7 @@ runs:
         exit 1
     - name: After failure occurred
       id: after_failure_occurred
+      if: ${{ failure() }}
       shell: bash
       run: |
         MESSAGE='Message After failure occurred.'
