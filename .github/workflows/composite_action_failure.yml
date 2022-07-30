@@ -1,0 +1,26 @@
+name: Try failure
+on:
+  push:
+    branches:
+      - "feature/composite-action-failure"
+jobs:
+  try-failure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - name: Occur failure
+        id: occur_failure
+        uses: ./.github/actions/occur_failure
+      - name: Success
+        if: success()
+        shell: bash
+        run: |
+          echo "Success"
+      - name: Failure
+        if: failure()
+        shell: bash
+        run: |
+          echo "Failure"
+          echo ${{ steps.occur_failure.outputs.message }}
+    

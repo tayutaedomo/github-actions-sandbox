@@ -1,0 +1,22 @@
+name: Occur Failure
+description: Try behavior after failure occurred
+outputs:
+  message:
+    description: Result message
+    value: ${{ steps.after_failure_occurred.outputs.message }}
+runs:
+  using: composite
+  steps:
+    - name: Occur failure
+      id: occur_failure
+      shell: bash
+      run: |
+        exit 1
+    - name: After failure occurred
+      id: after_failure_occurred
+      if: ${{ failure() }}
+      shell: bash
+      run: |
+        MESSAGE='Message After failure occurred.'
+        echo $MESSAGE
+        echo "::set-output name=message::$MESSAGE"
