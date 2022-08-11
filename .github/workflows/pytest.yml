@@ -5,7 +5,7 @@ on:
     branches: [ "feature/pytest" ]
 
 jobs:
-  build:
+  pytest:
 
     runs-on: ubuntu-latest
     strategy:
