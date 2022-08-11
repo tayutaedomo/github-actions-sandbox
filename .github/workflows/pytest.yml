@@ -1,8 +1,9 @@
 name: pytest
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ "feature/pytest" ]
+    branches: [ "feature/pytest-ftp" ]
 
 jobs:
   pytest:
