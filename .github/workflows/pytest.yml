@@ -2,7 +2,7 @@ name: pytest
 
 on:
   push:
-    branches: [ "feature/checkout" ]
+    branches: [ "feature/pytest" ]
 
 jobs:
   build:
