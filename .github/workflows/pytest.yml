@@ -2,7 +2,7 @@ name: pytest
 
 on:
   push:
-    branches: [ "feature/pytest" ]
+    branches: [ "feature/pytest-ftp" ]
 
 jobs:
   pytest:
