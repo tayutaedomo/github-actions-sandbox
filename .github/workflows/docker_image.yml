@@ -1,0 +1,29 @@
+name: Docker Build and Save
+
+on:
+  push:
+    branches: 
+      - feature/docker-image
+  workflow_dispatch:
+
+jobs:
+  build_and_save:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check Out Repository
+      uses: actions/checkout@v4
+
+    - name: Build Docker Image
+      run: docker build -t gh-actions-poetry:v0.1 .
+
+    - name: Save Docker Image
+      run: |
+        docker save gh-actions-poetry:v0.1 | gzip > gh-actions-poetry.tar.gz
+
+    - name: Upload Docker Image Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: gh-actions-poetry-image
+        path: gh-actions-poetry.tar.gz
+        retention-days: 3
