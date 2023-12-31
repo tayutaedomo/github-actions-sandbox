@@ -1,4 +1,4 @@
-name: Docker Build and Save
+name: Docker Build
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_and_save:
+  docker-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,6 +16,9 @@ jobs:
 
     - name: Build Docker Image
       run: docker build -t gh-actions-poetry:v0.1 .
+
+    - name: Inspect Docker Image
+      run: docker inspect gh-actions-poetry:v0.1
 
     - name: Save Docker Image
       run: |
