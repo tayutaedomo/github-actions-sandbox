@@ -1,0 +1,13 @@
+{
+  "name": "github-actions-sandbox",
+  "version": "0.1.0",
+  "description": "Try Github Actions",
+  "scripts": {
+    "poetry:art": "poetry run python -c \"from art import aprint; aprint('rand')\"",
+    "docker:build": "docker build -t gh-actions-poetry:v0.1 .",
+    "docker:run": "docker run --name gh-actions-poetry gh-actions-poetry:v0.1",
+    "docker:start": "docker start gh-actions-poetry",
+    "docker:logs": "docker logs -f gh-actions-poetry",
+    "docker:tag": "docker tag gh-actions-poetry:v0.1 gh-actions-poetry:v0.2"
+  }
+}
